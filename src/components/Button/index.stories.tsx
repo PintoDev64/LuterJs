@@ -16,10 +16,6 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
     args: {
-        props: {
-            children: "XDDD",
-            onClick: () => console.log("hola"),
-        },
-        style: "small"
+        children: <h1>Hola</h1>
     }
 }

@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import Switch from "."
+import Table from "."
+import THead from "./components/thead"
 
-const meta: Meta<typeof Switch> = {
-    title: "Componentes/Switch",
-    component: Switch,
+const meta: Meta<typeof Table> = {
+    title: "Componentes/Table",
+    component: Table,
     parameters: {
         layout: "centered"
     },
@@ -16,7 +17,6 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
     args: {
-        className: undefined,
-        onChange: (value) => {console.log(value.target.checked)}
+        children: <THead />
     }
 }

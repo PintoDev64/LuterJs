@@ -1,5 +1,4 @@
-.LuterJs-Button-Small,
-.LuterJs-Button-Large {
+.LuterJs-Button {
     /* General */
     padding: 10px 15px;
     border-radius: 100px;
@@ -13,12 +12,6 @@
     transition: all .2s ease;
 }
 
-.LuterJs-Button-Large {
-    width: 100%;
-    height: fit-content;
-}
-
-.LuterJs-Button-Large:active,
-.LuterJs-Button-Small:active {
+.LuterJs-Button:active {
     transform: scale(.95);
 }
