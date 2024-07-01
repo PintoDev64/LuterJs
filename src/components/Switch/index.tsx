@@ -4,15 +4,19 @@ import "./index.css"
 import { CheckIcon, XIcon } from "./components/icons"
 
 type Props = {
-    properties: ComponentProps<"input">
+    properties?: ComponentProps<"input">
     className?: string
-    onChange: (event: ChangeEvent<HTMLInputElement>) => any
+    onChange?: (event: ChangeEvent<HTMLInputElement>) => any
+}
+
+const DEFAULT_VALUES = {
+    Checked: false
 }
 
 export default function Switch({ properties, className = "LuterJs-Switch", onChange }: Props) {
 
     const SwitchRef = useRef<HTMLInputElement | null>(null)
-    const [State, setState] = useState(false)
+    const [State, setState] = useState(DEFAULT_VALUES.Checked)
 
     const Execute = () => {
         SwitchRef.current?.click()
@@ -21,7 +25,7 @@ export default function Switch({ properties, className = "LuterJs-Switch", onCha
 
     return (
         <>
-            <input className={`${className}-Input`} ref={SwitchRef} type="checkbox" onChange={onChange} checked={State} hidden aria-hidden {...properties} />
+            <input className={`${className}-Input`} ref={SwitchRef} type="checkbox" onChange={onChange} defaultChecked={DEFAULT_VALUES.Checked} hidden aria-hidden {...properties} />
             <div
                 onClick={Execute}
                 className={className}>

@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import Table from "."
-import THead from "./components/thead"
 
 const meta: Meta<typeof Table> = {
     title: "Componentes/Table",
@@ -17,6 +16,26 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
     args: {
-        children: <THead />
+        children: undefined,
+        className: undefined,
+        caption: undefined,
+        native: true,
+        data: [
+            {
+                EXAMPLE: "Ejemplo",
+                XD: "Risa",
+                NewFill: 1
+            },
+            {
+                EXAMPLE: "Tristesa",
+                XD: "Felicidaddhasgdhjasgjdfshdhfjsdgfhjgsdj",
+                NewFill: 2
+            },
+            {
+                EXAMPLE: "Tristesa",
+                XD: "Felicidad",
+                NewFill: 3
+            }
+        ]
     }
 }

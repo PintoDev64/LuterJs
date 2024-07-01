@@ -1,0 +1,71 @@
+div.LuterJs-Table {
+    width: fit-content;
+    border-radius: 7.5px;
+    border: 2px solid #000000;
+    overflow: hidden;
+}
+
+div.LuterJs-Table-Caption {
+    padding: 10px;
+    font-weight: bold;
+    border-top: 2px solid rgb(0 0 0);
+}
+
+div.LuterJs-Table-Head {
+    background-color: #000000;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+div.LuterJs-Table-Body-Row > div {
+    outline: 1px solid #000000;
+}
+
+div.LuterJs-Table-Body-Row,
+div.LuterJs-Table-Head-Row {
+    display: flex;
+}
+
+div.LuterJs-Table-Body-Row>div,
+div.LuterJs-Table-Head-Row>div {
+    padding: 8px 10px;
+    min-width: 75px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+table.LuterJs-Table {
+    border-radius: 7.5px;
+    border-collapse: collapse;
+    outline: 2px solid #000000;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    overflow: hidden;
+}
+
+caption.LuterJs-Table-Caption {
+    caption-side: bottom;
+    padding: 10px;
+    font-weight: bold;
+    border-top: 2px solid rgb(0 0 0);
+}
+
+thead.LuterJs-Table-Head {
+    background-color: #000000;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+thead.LuterJs-Table-Head th,
+thead.LuterJs-Table-Head td {
+    font-weight: bold;
+}
+
+thead.LuterJs-Table-Head th,
+thead.LuterJs-Table-Head td,
+tbody.LuterJs-Table-Body th,
+tbody.LuterJs-Table-Body td {
+    outline: 1px solid #000000;
+    padding: 8px 10px;
+}

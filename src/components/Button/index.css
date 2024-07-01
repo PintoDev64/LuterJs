@@ -1,11 +1,14 @@
 .LuterJs-Button {
     /* General */
-    padding: 10px 15px;
+    padding: 12.5px;
     border-radius: 100px;
     background-color: #ffffff;
+    min-width: none;
+    min-height: 10px;
     border: none;
     outline: none;
     cursor: pointer;
+    filter: drop-shadow(0 0 0.25rem #000000);
     /* Font */
     font-size: x-large;
     font-weight: bold;
