@@ -17,9 +17,9 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
     args: {
         className: undefined,
-        color: undefined,
-        value: 25,
-        properties: undefined,
-        onChange(value) {value}
+        defaultValue: 50,
+        onChange(value) {
+            value
+        },
     }
 }

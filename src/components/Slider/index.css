@@ -1,33 +1,12 @@
 .LuterJs-Range {
+    --Range-Color: #ffffff;
+    border-radius: 50px;
+    border: 2px solid #000000;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
-    box-sizing: border-box;
-    outline: 2px solid #000000;
-    border-radius: 50px;
-    min-width: 100px;
-    background: linear-gradient(90deg, #000000 50%, transparent 50% );
-}
-
-.LuterJs-Range,
-.LuterJs-Range * {
-    appearance: none;
-}
-
-.LuterJs-Range::-webkit-slider-runnable-track {
-    max-height: 15px;
-    border-radius: 50px;
-}
-
-.LuterJs-Range::-webkit-slider-thumb {
-    box-sizing: border-box;
-    appearance: none;
-    border-radius: 50px;
-    background-color: #ffffff;
-    width: 15px;
-    height: 15px;
-    transition: all .2s ease;
-}
-
-.LuterJs-Range:hover::-webkit-slider-thumb {
-    transform: scale(1.5);
+    min-width: 200px;
+    height: 10px;
+    position: relative;
+    cursor: pointer;
 }

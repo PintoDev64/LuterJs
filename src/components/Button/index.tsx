@@ -1,9 +1,12 @@
-import { ComponentProps } from "react"
+import { ComponentProps, ForwardedRef, forwardRef } from "react"
 
 import "./index.css"
 
 type Props = ComponentProps<"button">
 
-export default function Button(propeties: Props) {
-    return <button className={propeties.className ?? "LuterJs-Button"} {...propeties}/>
-}
+const Button = forwardRef((props: Props, ref: ForwardedRef<HTMLButtonElement> ) => {
+    const {className, ...rest} = props
+    return <button className={`LuterJs-Button ${className ?? ""}`} {...rest} ref={ref}/>
+})
+
+export default Button

@@ -1,19 +1,17 @@
-import { ChangeEvent, ComponentProps, useRef, useState } from "react"
+import { ComponentProps, ForwardedRef, forwardRef, useRef, useState } from "react"
 
 import "./index.css"
 import { CheckIcon, XIcon } from "./components/icons"
 
-type Props = {
-    properties?: ComponentProps<"input">
-    className?: string
-    onChange?: (event: ChangeEvent<HTMLInputElement>) => any
-}
+type Props = ComponentProps<"input">
 
 const DEFAULT_VALUES = {
     Checked: false
 }
 
-export default function Switch({ properties, className = "LuterJs-Switch", onChange }: Props) {
+const Switch = forwardRef((props: Props, ref: ForwardedRef<HTMLDivElement>) => {
+
+    const { className, ...rest } = props
 
     const SwitchRef = useRef<HTMLInputElement | null>(null)
     const [State, setState] = useState(DEFAULT_VALUES.Checked)
@@ -24,17 +22,20 @@ export default function Switch({ properties, className = "LuterJs-Switch", onCha
     }
 
     return (
-        <>
-            <input className={`${className}-Input`} ref={SwitchRef} type="checkbox" onChange={onChange} defaultChecked={DEFAULT_VALUES.Checked} hidden aria-hidden {...properties} />
+        <div>
+            <input className={`LuterJs-Switch-Input ${className}`} ref={SwitchRef} type="checkbox" defaultChecked={DEFAULT_VALUES.Checked} hidden aria-hidden {...rest} />
             <div
                 onClick={Execute}
-                className={className}>
+                className={`LuterJs-Switch ${className ?? ""}`}
+                ref={ref}>
                 <div
-                    className={`${className}-Circle ${State ? `${className}-Circle-True` : `${className}-Circle-False`}`}
+                    className={`LuterJs-Switch-Circle ${State ? "LuterJs-Switch-Circle-True" : "LuterJs-Switch-Circle-False"}`}
                 >
                     {State ? <XIcon /> : <CheckIcon />}
                 </div>
             </div>
-        </>
+        </div>
     )
-}
+})
+
+export default Switch

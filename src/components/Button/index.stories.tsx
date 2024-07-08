@@ -16,6 +16,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
     args: {
-        children: <p style={{ margin: 0 }}>Hola</p>
+        children: <p style={{ margin: 0 }}>Hola</p>,
+        className: "XD"
     }
 }

@@ -1,42 +1,53 @@
-import { ChangeEvent, ComponentProps, useState } from "react"
+import { MouseEvent, useEffect, useRef, useState } from "react"
 
 import "./index.css"
 
 type Props = {
-    properties: ComponentProps<"input"> | null | undefined,
-    color?: string | `#${number}` | `rgb(${number}, ${number}, ${number})` | `rgba(${number}, ${number}, ${number}, ${number})`
-    value: string | number | null | undefined
-    className: string
-    onChange: (value: number) => any,
+    className: string | undefined,
+    defaultValue: number | undefined,
+    onChange: (value: number) => void
+
 }
 
-const DEFAULT_VALUES = {
-    min: 0,
-    max: 100,
-    value: 0
-}
+export default function Slider({ className, defaultValue, onChange }: Props) {
+    const [sliderValue, setSliderValue] = useState(defaultValue ?? 0);
 
-export default function Slider({ color = "#000000", className = "LuterJs-Range", value = 0, properties, onChange }: Props) {
+    const conteiner = useRef<HTMLDivElement>(null!);
 
-    const [RangeValue, setRangeValue] = useState<string | number>(value ?? DEFAULT_VALUES.value)
-    const RangePercentage = (Number(RangeValue) / (Number(properties?.max ?? DEFAULT_VALUES.max))) * 100
+    const handleMouseMove = (e: any) => {
+        const containerRect = conteiner.current.clientWidth;
+        const containerBoundingRect = conteiner.current.getBoundingClientRect().left;
+        const mouseX = e.clientX - containerBoundingRect
+        const newValue = Math.trunc((mouseX / containerRect) * 100)
+        if (newValue <= 0) setSliderValue(0)
+        else if (newValue >= 100) setSliderValue(100)
+        else setSliderValue(newValue)
+    };
 
-    const Execute = (event: ChangeEvent<HTMLInputElement>) => {
-        setRangeValue(event.target.value)
-        onChange(parseInt(event.target.value))
-    }
+    const handleMouseDown = (e: MouseEvent<HTMLDivElement>) => {
+        e.preventDefault();
+        document.addEventListener("mousemove", handleMouseMove);
+        document.addEventListener("mouseup", handleMouseUp);
+    };
+
+    const handleMouseUp = () => {
+        document.removeEventListener("mousemove", handleMouseMove);
+        document.removeEventListener("mouseup", handleMouseUp);
+    };
+
+    useEffect(() => {
+        onChange(sliderValue)
+    }, [sliderValue])
+
 
     return (
-        <input
-            onChange={Execute}
-            value={RangeValue}
-            className={className}
-            type="range"
-            min={properties?.min ?? DEFAULT_VALUES.min}
-            max={properties?.max ?? DEFAULT_VALUES.max}
-            {...properties}
+        <div
+            className={`LuterJs-Range ${className}`}
+            ref={conteiner}
+            onMouseDown={handleMouseDown}
+            onClick={handleMouseMove}
             style={{
-                background: `linear-gradient(90deg, ${color} ${RangePercentage}%, transparent ${RangePercentage}%)`
+                background: `linear-gradient(90deg, var(--Range-Color) ${sliderValue}%, transparent ${sliderValue}% 100%)`
             }} />
-    )
-}
+    );
+};
