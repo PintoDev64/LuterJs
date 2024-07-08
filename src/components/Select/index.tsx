@@ -10,6 +10,12 @@ type Props = ComponentProps<"select"> & {
 import "./index.css"
 import { evalClassName } from "./utils"
 
+/**
+ * Component to select different options
+ * @param data - Array of string, number, { id: string | number, value: string | number }
+ * @event onChange - value: number | string
+ * @returns JSX.Element
+ */
 export default function Select(props: Props) {
     const { native = false, data, className, value, onChange, ...rest } = props;
     if (!data || data?.length === 0) return
