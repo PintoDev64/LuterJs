@@ -1,15 +1,15 @@
-.LuterJs-Switch,
-.LuterJs-Switch-Circle {
+.LuterJs-Switch-Elementor,
+.LuterJs-Switch-Elementor-Circle {
     border-radius: 50px;
     overflow: hidden;
 }
 
-.LuterJs-Switch,
-.LuterJs-Switch * {
+.LuterJs-Switch-Elementor,
+.LuterJs-Switch-Elementor * {
     transition: all .2s ease;
 }
 
-.LuterJs-Switch {
+.LuterJs-Switch-Elementor {
     display: flex;
     align-items: center;
     box-sizing: border-box;
@@ -22,7 +22,7 @@
     cursor: pointer;
 }
 
-.LuterJs-Switch-Circle {
+.LuterJs-Switch-Elementor-Circle {
     display: grid;
     place-content: center;
     width: 50px;
@@ -31,27 +31,27 @@
     background-color: rgb(255, 255, 255);
 }
 
-.LuterJs-Switch-Circle-False {
+.LuterJs-Switch-Elementor-Circle-False {
     transform: translateX(0);
 }
 
-.LuterJs-Switch-Input ~ .LuterJs-Switch {
+.LuterJs-Switch-Input ~ .LuterJs-Switch-Elementor {
     background: rgb(128, 132, 142);
 }
 
-.LuterJs-Switch-Input:checked ~ .LuterJs-Switch {
+.LuterJs-Switch-Input:checked ~ .LuterJs-Switch-Elementor {
     background: rgb(0, 214, 0);
 }
 
-.LuterJs-Switch-Input ~ .LuterJs-Switch svg,
-.LuterJs-Switch-Input ~ .LuterJs-Switch path {
+.LuterJs-Switch-Input ~ .LuterJs-Switch-Elementor svg,
+.LuterJs-Switch-Input ~ .LuterJs-Switch-Elementor path {
     fill: rgb(128, 132, 142);
 }
-.LuterJs-Switch-Input:checked ~ .LuterJs-Switch svg,
-.LuterJs-Switch-Input:checked ~ .LuterJs-Switch path {
+.LuterJs-Switch-Input:checked ~ .LuterJs-Switch-Elementor svg,
+.LuterJs-Switch-Input:checked ~ .LuterJs-Switch-Elementor path {
     fill: rgb(0, 214, 0);
 }
 
-.LuterJs-Switch-Circle-True {
+.LuterJs-Switch-Elementor-Circle-True {
     transform: translateX(80%);
 }

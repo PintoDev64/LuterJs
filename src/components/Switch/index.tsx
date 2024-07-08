@@ -9,6 +9,11 @@ const DEFAULT_VALUES = {
     Checked: false
 }
 
+/**
+ * Visually check whether an option is active or not
+ * @event onChange -> Devuelve el estado del input (true/false)
+ * @returns JSX.Element
+ */
 const Switch = forwardRef((props: Props, ref: ForwardedRef<HTMLDivElement>) => {
 
     const { className, ...rest } = props
@@ -22,14 +27,14 @@ const Switch = forwardRef((props: Props, ref: ForwardedRef<HTMLDivElement>) => {
     }
 
     return (
-        <div>
-            <input className={`LuterJs-Switch-Input ${className}`} ref={SwitchRef} type="checkbox" defaultChecked={DEFAULT_VALUES.Checked} hidden aria-hidden {...rest} />
+        <div className={`LuterJs-Switch ${className ?? ""}`}>
+            <input className={`LuterJs-Switch-Input`} ref={SwitchRef} type="checkbox" defaultChecked={DEFAULT_VALUES.Checked} hidden aria-hidden {...rest} />
             <div
                 onClick={Execute}
-                className={`LuterJs-Switch ${className ?? ""}`}
+                className="LuterJs-Switch-Elementor"
                 ref={ref}>
                 <div
-                    className={`LuterJs-Switch-Circle ${State ? "LuterJs-Switch-Circle-True" : "LuterJs-Switch-Circle-False"}`}
+                    className={`LuterJs-Switch-Elementor-Circle ${State ? "LuterJs-Switch-Elementor-Circle-True" : "LuterJs-Switch-Elementor-Circle-False"}`}
                 >
                     {State ? <XIcon /> : <CheckIcon />}
                 </div>

@@ -19,6 +19,7 @@ div.LuterJs-Table-Head {
 
 div.LuterJs-Table-Body-Row > div {
     outline: 1px solid #000000;
+    background-color: #ffffff;
 }
 
 div.LuterJs-Table-Body-Row,
@@ -57,9 +58,14 @@ thead.LuterJs-Table-Head {
     color: #ffffff;
 }
 
-thead.LuterJs-Table-Head th,
-thead.LuterJs-Table-Head td {
+thead.LuterJs-Table-Head th *,
+thead.LuterJs-Table-Head td * {
     font-weight: bold;
+}
+
+tbody.LuterJs-Table-Body th,
+tbody.LuterJs-Table-Body td {
+    background-color: #ffffff;
 }
 
 thead.LuterJs-Table-Head th,

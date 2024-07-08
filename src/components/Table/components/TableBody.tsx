@@ -7,9 +7,9 @@ type Props = {
 export default function TableBody({ className, dataArray, native }: Props) {
     if (!native) {
         return (
-            <div className={`${className}-Body`}>
+            <div className={`LuterJs-Table-Body ${className ?? ""}`}>
                 {(dataArray && dataArray.length !== 0) && dataArray.map((object, index) =>
-                    <div key={`${className}-Body-Row-${index}`} className={`${className}-Body-Row`}>
+                    <div key={`${className}-Body-Row-${index}`} className={`LuterJs-Table-Body-Row ${className ?? ""}`}>
                         {Object.values<string[]>(object).map((detail) =>
                             <div key={`${className}-Body-Row-${index}-${detail}`}>{detail}</div>
                         )}
@@ -19,9 +19,9 @@ export default function TableBody({ className, dataArray, native }: Props) {
         )
     }
     return (
-        <tbody className={`${className}-Body`}>
+        <tbody className={`LuterJs-Table-Body ${className ?? ""}`}>
             {(dataArray && dataArray.length !== 0) && dataArray.map((object, index) =>
-                <tr key={`${className}-Body-Row-${index}`} className={`${className}-Body-Row`}>
+                <tr key={`${className}-Body-Row-${index}`} className={`LuterJs-Table-Body-Row ${className ?? ""}`}>
                     {Object.values<string[]>(object).map((detail) =>
                         <td key={`${className}-Body-Row-${index}-${detail}`} scope="row">{detail}</td>
                     )}

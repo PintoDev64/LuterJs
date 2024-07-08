@@ -17,9 +17,10 @@ import TableCaption from "./components/Caption"
 
 /**
  * Returns a table using the standard HTML "table" tag or div elements
+ * @returns JSX.Element
  * @see doc here https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
  */
-export default function Table({ native = false, className = "LuterJs-Table", caption, children, data = [] }: Props) {
+export default function Table({ native = false, className, caption, children, data = [] }: Props) {
 
   if (checkDataParameter(data)) {
     return <NoData />
@@ -30,21 +31,21 @@ export default function Table({ native = false, className = "LuterJs-Table", cap
   if (!native) {
     return (
       <>
-        <div className={className ?? "LuterJs-Table"}>
-          <TableHead className={className ?? "LuterJs-Table"} titles={TitlesArray} native={native} />
-          <TableBody className={className ?? "LuterJs-Table"} dataArray={data} native={native} />
+        <div className={`LuterJs-Table ${className ?? ""}`}>
+          <TableHead titles={TitlesArray} native={native} />
+          <TableBody dataArray={data} native={native} />
           {children}
         </div>
-        <TableCaption className={className ?? "LuterJs-Table"} captionText={caption} native={native} />
+        <TableCaption captionText={caption} native={native} />
       </>
     )
   }
 
   return (
-    <table className={className ?? "LuterJs-Table"}>
-      <TableCaption className={className ?? "LuterJs-Table"} captionText={caption} native={native} />
-      <TableHead className={className ?? "LuterJs-Table"} titles={TitlesArray} native={native} />
-      <TableBody className={className ?? "LuterJs-Table"} dataArray={data} native={native} />
+    <table className={`LuterJs-Table ${className ?? ""}`}>
+      <TableCaption captionText={caption} native={native} />
+      <TableHead titles={TitlesArray} native={native} />
+      <TableBody dataArray={data} native={native} />
       {children}
     </table>
   )

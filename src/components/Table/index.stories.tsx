@@ -19,7 +19,7 @@ export const Default: Story = {
         children: undefined,
         className: undefined,
         caption: undefined,
-        native: true,
+        native: false,
         data: [
             {
                 EXAMPLE: "Ejemplo",

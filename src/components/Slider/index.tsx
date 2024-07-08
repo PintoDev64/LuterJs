@@ -6,9 +6,13 @@ type Props = {
     className: string | undefined,
     defaultValue: number | undefined,
     onChange: (value: number) => void
-
 }
 
+/**
+ * Slider component or range element that returns the value (0/100) of the range
+ * @event onChange - value: number
+ * @returns JSX.Element
+ */
 export default function Slider({ className, defaultValue, onChange }: Props) {
     const [sliderValue, setSliderValue] = useState(defaultValue ?? 0);
 
@@ -36,7 +40,7 @@ export default function Slider({ className, defaultValue, onChange }: Props) {
     };
 
     useEffect(() => {
-        onChange(sliderValue)
+        typeof onChange === "function" && onChange(sliderValue)
     }, [sliderValue])
 
 

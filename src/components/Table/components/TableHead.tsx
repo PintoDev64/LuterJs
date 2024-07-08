@@ -8,8 +8,8 @@ export default function TableHead({ className, titles, native }: Props) {
 
     if (!native) {
         return (
-            <div className={`${className}-Head`}>
-                <div className={`${className}-Head-Row`}>
+            <div className={`LuterJs-Table-Head ${className ?? ""}`}>
+                <div className={`LuterJs-Table-Head-Row ${className ?? ""}`}>
                     {
                         (titles && titles.length !== 0) && titles.map(Title => <div key={`${className}-Head-Row-${Title}`}>{Title}</div>)
                     }
@@ -19,8 +19,8 @@ export default function TableHead({ className, titles, native }: Props) {
     }
 
     return (
-        <thead className={`${className}-Head`}>
-            <tr className={`${className}-Head-Row`}>
+        <thead className={`LuterJs-Table-Head ${className ?? ""}`}>
+            <tr className={`LuterJs-Table-Head-Row ${className ?? ""}`}>
                 {
                     (titles && titles.length !== 0) && titles.map(Title => <th key={`${className}-Head-Row-${Title}`} scope="col">{Title}</th>)
                 }
